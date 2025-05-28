@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4f0f8 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.login-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.login-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.login-header p {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-field {
+  width: 10px;
+  padding: 15px 15px 15px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: transparent;
+  z-index: 1;
+}
+
+.input-field:focus {
+  border-color: #4a934a;
+  outline: none;
+}
+
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  transform: translateY(-25px) scale(0.85);
+  background: white;
+  padding: 0 5px;
+  color: #4a934a;
+  z-index: 2;
+}
+
+.input-label {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  color: #7f8c8d;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-field:focus ~ .input-highlight {
+  width: 100%;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  background-color: #fee;
+  border-left: 4px solid #e74c3c;
+  border-radius: 6px;
+  color: #e74c3c;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.error-message svg {
+  width: 20px;
+  height: 20px;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  background: linear-gradient(135deg, #4a934a 0%, #3a7a3a 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(74, 147, 74, 0.3);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.login-button svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.login-button:hover svg {
+  transform: translateX(5px);
+}
+
+.login-button.submitting {
+  pointer-events: none;
+  background: linear-gradient(135deg, #4a934a 0%, #3a7a3a 100%);
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.link {
+  color: #4a934a;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.login-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(74, 147, 74, 0.1);
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.circle-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  left: -50px;
+  animation: float 6s ease-in-out infinite reverse;
+}
+
+.circle-3 {
+  width: 150px;
+  height: 150px;
+  top: 30%;
+  left: 20%;
+  animation: float 7s ease-in-out infinite 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.flower-animation {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 100px;
+  animation: float 6s ease-in-out infinite 1s;
+}
+
+.petal {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(74, 147, 74, 0.2);
+  border-radius: 50% 0 50% 50%;
+  transform-origin: bottom right;
+}
+
+.petal-1 {
+  top: 0;
+  left: 30px;
+  transform: rotate(0deg);
+  animation: bloom 4s ease-in-out infinite;
+}
+
+.petal-2 {
+  top: 30px;
+  left: 60px;
+  transform: rotate(90deg);
+  animation: bloom 4s ease-in-out infinite 0.5s;
+}
+
+.petal-3 {
+  top: 60px;
+  left: 30px;
+  transform: rotate(180deg);
+  animation: bloom 4s ease-in-out infinite 1s;
+}
+
+.petal-4 {
+  top: 30px;
+  left: 0;
+  transform: rotate(270deg);
+  animation: bloom 4s ease-in-out infinite 1.5s;
+}
+
+.flower-center {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #4a934a;
+  border-radius: 50%;
+  top: 100;
+  left: 40px;
+}
+
+@keyframes bloom {
+  0%, 100% { transform: scale(1) rotate(var(--base-rotation)); }
+  50% { transform: scale(1.1) rotate(var(--base-rotation)); }
+}
+
+@media (max-width: 728px) {
+  .login-container {
+    padding: 20px;
+  }
+
+  .login-card {
+    max-width: 100%;
+    padding: 30px 20px;
+    border-radius: 16px;
+    margin: auto;
+  }
+
+  .login-header h2 {
+    font-size: 24px;
+  }
+
+  .login-header p,
+  .login-footer,
+  .link {
+    font-size: 13px;
+  }
+
+  .input-field {
+    font-size: 15px;
+    padding: 14px;
+  }
+
+  
+
+  .input-label {
+    font-size: 15px;
+    top: 14px;
+  }
+
+  .login-button {
+    font-size: 15px;
+    padding: 14px;
+  }
+
+  .login-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+  }
+
+  .circle {
+    display: none;
+  }
+
+  .flower-animation {
+    display: none;
+  }
+
+  .login-decoration {
+    pointer-events: none;
+  }
+
+  .login-form {
+    gap: 20px;
+  }
+
+  .error-message {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .error-message svg {
+    width: 18px;
+    height: 18px;
+  }
+}

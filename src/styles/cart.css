@@ -1,0 +1,657 @@
+/* Основные стили */
+.cart-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2d3748;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #4299e1, #38b2ac);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Пустая корзина */
+.empty-cart {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #718096;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* Элементы корзины */
+.cart-items {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  animation: slideIn 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.cart-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item:nth-child(1) { animation-delay: 0.1s; }
+.cart-item:nth-child(2) { animation-delay: 0.2s; }
+.cart-item:nth-child(3) { animation-delay: 0.3s; }
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-details h3 {
+  font-size: 1.1rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.cart-item-details p {
+  font-size: 1rem;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+
+.quantity-controls button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #edf2f7;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-controls button:hover {
+  background: #e2e8f0;
+  transform: scale(1.1);
+}
+
+.quantity {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.cart-item-total {
+  text-align: right;
+  margin-left: 1rem;
+}
+
+.cart-item-total p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #e53e3e;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+.remove-btn:hover {
+  background: rgba(229, 62, 62, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Секция промокода */
+.promo-section {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.promo-input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.promo-input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.apply-btn {
+  padding: 0 1.5rem;
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(66, 153, 225, 0.3);
+}
+
+.apply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(66, 153, 225, 0.4);
+}
+
+.promo-message {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  animation: bounceIn 0.5s;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.promo-message.success {
+  background: rgba(72, 187, 120, 0.1);
+  color: #48bb78;
+}
+
+.promo-message.error {
+  background: rgba(229, 62, 62, 0.1);
+  color: #e53e3e;
+}
+
+/* Выбор валюты */
+.currency-selector {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 2rem 0;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.currency-selector label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.currency-selector label:hover {
+  background: #edf2f7;
+}
+
+.currency-selector input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #cbd5e0;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.currency-selector input[type="radio"]:checked {
+  border-color: #4299e1;
+}
+
+.currency-selector input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4299e1;
+}
+
+/* Итоговая сумма */
+.cart-summary {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-top: 2rem;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+.original-price {
+  color: #718096;
+  text-decoration: line-through;
+  margin-bottom: 0.5rem;
+}
+
+.cart-summary h3 {
+  font-size: 1.5rem;
+  color: #2d3748;
+  margin: 1rem 0;
+}
+
+.discount-applied {
+  color: #48bb78;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  animation: pulse 1.5s infinite;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4);
+}
+
+/* Форма оформления заказа */
+.payment-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-start; /* Изменено с center на flex-start */
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto; /* Добавлено для прокрутки */
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Скрываем скроллбар для Chrome, Safari и Opera */
+.payment-form::-webkit-scrollbar {
+  display: none;
+}
+
+.payment-form > div {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  max-height: calc(100vh - 40px); /* Ограничение по высоте */
+  margin: 20px 0; /* Добавлены отступы сверху и снизу */
+  overflow-y: auto; /* Внутренняя прокрутка */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transform-origin: center top; /* Изменено с center bottom */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px) scale(0.95); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.payment-form h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+  padding: 25px 25px 15px;
+  position: relative;
+}
+
+.payment-form h4::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Секции формы */
+.delivery-section,
+.payment-method {
+  padding: 0 25px 15px;
+}
+
+.delivery-section h5,
+.payment-method h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.delivery-section h5::before,
+.payment-method h5::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #667eea;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Поля формы */
+.payment-form label {
+  display: block;
+  margin-bottom: 20px;
+  position: relative;
+  color: #ffffff;
+}
+
+.payment-form label > span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.payment-form input[type="text"],
+.payment-form input[type="date"],
+.payment-form input[type="time"],
+.payment-form input[type="tel"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.payment-form input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  background-color: white;
+}
+
+/* Стили для радио-кнопок */
+.payment-method-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-method label {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 0;
+  color: #ffffff;
+}
+
+.payment-method label:hover {
+  border-color: #a3bffa;
+  transform: translateY(-2px);
+}
+
+.payment-method input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #cbd5e0;
+  border-radius: 50%;
+  margin-right: 12px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.payment-method input[type="radio"]:checked {
+  border-color: #667eea;
+}
+
+.payment-method input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #667eea;
+}
+
+/* Форма оплаты картой */
+.card-payment {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 10px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.card-payment label {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+/* Чекбокс сохранения данных */
+.save-data {
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.save-data:hover {
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.save-data input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #cbd5e0;
+  border-radius: 6px;
+  margin-right: 12px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.save-data input[type="checkbox"]:checked {
+  background-color: #667eea;
+  border-color: #667eea;
+}
+
+.save-data input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 0.9rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Кнопки */
+.submit-payment {
+  width: calc(100% - 50px);
+  margin: 10px 25px 25px;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-payment:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.submit-payment:active {
+  transform: translateY(0);
+}
+
+.close-form {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-form:hover {
+  background: #e2e8f0;
+  transform: rotate(90deg);
+}
+
+.close-form::before,
+.close-form::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background: #4a5568;
+}
+
+.close-form::before {
+  transform: rotate(45deg);
+}
+
+.close-form::after {
+  transform: rotate(-45deg);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 600px) {
+  .payment-form > div {
+    max-height: 85vh;
+  }
+  
+  .payment-form h4 {
+    font-size: 1.5rem;
+    padding: 20px 20px 10px;
+  }
+  
+  .delivery-section,
+  .payment-method {
+    padding: 0 20px 10px;
+  }
+  
+  .submit-payment {
+    width: calc(100% - 40px);
+    margin: 10px 20px 20px;
+  }
+}
